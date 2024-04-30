@@ -1,8 +1,8 @@
 // type Config = { protocol: "http" | "https"; port: 3000 | 3001 };
 
-// interface Config {
-// 	protocol: "https";
-// 	port: 3001;
+// const serverConfig: Config = {
+// 	protocol: "https",
+// 	port: 3001,
 // };
 
 type StartFunction = (protocol: "http" | "https", port: 3000 | 3001) => string;
@@ -16,15 +16,13 @@ const startServer: StartFunction = (
 	return "Server started";
 }
 
-interface Config { protocol: "http" | "https"; port: 3000 | 3001 };
+type Config = { protocol: "http" | "https"; port: 3000 | 3001 };
 
-interface Role {
+type Role = {
 	role: string;
 };
 
-interface ConfigWithRole extends Config, Role {
-	...
-}
+type ConfigWithRole = Config & Role;
 
 const serverConfig: ConfigWithRole = {
 	protocol: "https",
@@ -32,12 +30,7 @@ const serverConfig: ConfigWithRole = {
 	role: 'admin'
 };
 
-interface Styles {
-	[key: string]: string;
-};
-
-const styles: Styles = {
-	position: 'absolute',
-	top: '20px',
-	left: '50px'
-};
+const backupConfig = {
+	protocol: "https",
+	port: 3000
+}
