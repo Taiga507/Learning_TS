@@ -58,7 +58,7 @@ function playMedia(
 
 playMedia({
 	name: "WoW",
-	format: FormatsOfMedia.MKV,
+	format: FormatsOfMedia.FLV,
 	type: TypesOfMedia.VIDEO,
 	subtitles: "hmhmhm hmhmhm doh",
 	marks: ["4:30", "5:40"],
