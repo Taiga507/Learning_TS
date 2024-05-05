@@ -11,7 +11,7 @@ interface IformData {
 	checkbox: boolean;
 }
 
-const formData = {
+const formData: IformData = {
 	email: "",
 	title: "",
 	text: "",
