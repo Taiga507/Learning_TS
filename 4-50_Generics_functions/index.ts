@@ -42,11 +42,12 @@ const saver: DataSaver = {
 
 saver.processing(5);
 
-interface DataSaverSec {
+
+interface DataSaver2 {
 	processing: <T>(data: T) => T;
 }
 
-const saverSec: DataSaver = {
+const saver2: DataSaver2 = {
 	processing(data) {
 		// ...
 		console.log(data);
@@ -54,13 +55,14 @@ const saverSec: DataSaver = {
 	}
 };
 
-saverSec.processing(5);
+saver2.processing(5);
 
-interface DataSaverThr {
+
+interface DataSaver3 {
 	processing: <T>(data: T) => T;
 }
 
-const saverThr: DataSaver = {
+const saver3: DataSaver3 = {
 	processing: (data) => {
 		// ...
 		console.log(data);
@@ -68,34 +70,34 @@ const saverThr: DataSaver = {
 	}
 };
 
-saverThr.processing(5);
+saver3.processing(5);
 
 
-// function processing<T>(data: T): T {
-// 	return data
-// };
+function processing<T>(data: T): T {
+	return data
+};
 
-// let newFunc: <T>(data: T) => T = processing;
+let newFunc: <T>(data: T) => T = processing;
 
-// interface DataSaver {
-// 	processing: <T>(data: T) => T;
-// };
+interface DataSaver4 {
+	processing: <T>(data: T) => T;
+};
 
-// const saverFour: DataSaver = {
-// 	processing: processing
-// };
+const saver4: DataSaver4 = {
+	processing: processing
+};
 
 
-// interface ProcessingFifth {
-// 	<T>(data: T): T
-// };
+interface Processing5 {
+	<T>(data: T): T
+};
 
-// function processingSec<T>(data: T): T {
-// 	return data
-// }
+function processing2<T>(data: T): T {
+	return data
+}
 
-// let newFuncSec: ProcessingFifth = processingSec;
+let newFunc2: Processing5 = processing2;
 
-// interface DataSaver {
-// 	processingSec: ProcessingFifth;
-// };
+interface DataSaver5 {
+	processing: Processing5;
+};

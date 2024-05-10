@@ -12,13 +12,13 @@ const alex = new User('Alex', 30);
 console.log(alex);
 
 
-const alex = new User<string, number>('Alex', 30); // Не очень полезно
+const alex2 = new User<string, number>('Alex', 30); // Не очень полезно
 const newData = 'Alex';
 const ageData = 30;
-const alex = new User<string, number>(newData, ageData); // Теперь неправильные данные не придут
+const alex3 = new User<string, number>(newData, ageData); // Теперь неправильные данные не придут
 
 
-class User<T, S> {
+class User2<T, S> {
 	name: T;
 	age: S;
 

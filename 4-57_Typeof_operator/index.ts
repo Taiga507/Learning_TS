@@ -30,4 +30,4 @@ const google = {
 };
 
 type GoogleKeys = keyof google; // Error! google is an object, not a type
-type GoogleKeys = keyof typeof google; // 'name' | 'debts'
+type GoogleKeys2 = keyof typeof google; // 'name' | 'debts'

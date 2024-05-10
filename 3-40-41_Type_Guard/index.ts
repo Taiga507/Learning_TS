@@ -24,25 +24,25 @@ interface SuperAirplane {
 
 type Vehicle = Car | Ship | Airplane | SuperAirplane;
 
-// function isCar(car: Vehicle): car is Car {
-// 	return "wheels" in car;
-// }
+function isCar(car: Vehicle): car is Car {
+	return "wheels" in car;
+}
 
-// function isShip(ship: Vehicle): ship is Ship {
-// 	return "sail" in ship;
-// }
-
-// function repairVehicle(vehicle: Vehicle) {
-// 	if (isCar(vehicle)) {
-// 		vehicle.wheels;
-// 	} else if (isShip(vehicle)) {
-// 		vehicle.sail;
-// 	} else {
-//         vehicle.wings
-//     }
-// }
+function isShip(ship: Vehicle): ship is Ship {
+	return "sail" in ship;
+}
 
 function repairVehicle(vehicle: Vehicle) {
+	if (isCar(vehicle)) {
+		vehicle.wheels;
+	} else if (isShip(vehicle)) {
+		vehicle.sail;
+	} else {
+        vehicle.wings
+    }
+}
+
+function repairVehicle2(vehicle: Vehicle) {
 	switch (vehicle.name) {
 		case "car":
 			console.log(vehicle.engine);

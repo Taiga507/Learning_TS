@@ -12,28 +12,28 @@ function action(state: Readonly<IState>) {
 };
 
 
-interface IState {
+interface IState2 {
 	data: {
 		name: string;
 	};
 	tag: string;
 };
 
-const state: Partial<IState> = {
+const state: Partial<IState2> = {
 	data: {
 		name: 'John'
 	}
 };
 
 
-interface IState {
+interface IState3 {
 	data: {
 		name: string;
 	};
 	tag?: string;
 };
 
-const strictState: Required<IState> = {
+const strictState: Required<IState3> = {
 	data: {
 		name: 'John'
 	}
