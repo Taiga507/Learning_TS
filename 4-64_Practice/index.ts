@@ -2,11 +2,11 @@ interface IFitnessClass {
 	name: string;
 	startsAt: string;
 	duration: number;
-}
+};
 
 interface IFutureClass extends Omit<IFitnessClass, "startsAt"> {
 	willStartsAt: string;
-}
+};
 
 interface IClient {
 	name: string;
@@ -14,7 +14,7 @@ interface IClient {
 	gender: "male" | "female";
 	timeLeft: string;
 	makeCallFor: Date;
-}
+};
 
 type CurrClient = Omit<IClient, "makeCallFor">;
 type ExClient = Omit<IClient, "timeLeft">;
@@ -28,7 +28,7 @@ interface IFitnessClub {
 	currClients: CurrClient[];
 	exClients: ExClient[];
 	futureClients: FutureClient[];
-}
+};
 
 const fitnessClubCenter: IFitnessClub = {
 	clubName: "Fitness club Center",

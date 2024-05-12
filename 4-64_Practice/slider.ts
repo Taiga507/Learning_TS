@@ -6,12 +6,12 @@ interface ISlider {
 	dots?: boolean;
 	arrows?: boolean;
 	animationName?: string;
-}
+};
 
 type CustomSliderBase = Required<Omit<ISlider, "animationName" | "speed">>;
 interface ICustomSlider extends CustomSliderBase {
 	speed: number;
-}
+};
 
 function createSlider({
 	container = "",
@@ -22,7 +22,7 @@ function createSlider({
 	arrows = true,
 }: ISlider = {}): void {
 	console.log(container, numberOfSlides, speed, direction, dots, arrows);
-}
+};
 
 createSlider();
 
