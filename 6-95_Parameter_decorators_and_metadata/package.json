@@ -1,0 +1,14 @@
+{
+  "name": "6-95_parameter_decorators_and_metadata",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "reflect-metadata": "^0.2.2"
+  }
+}
