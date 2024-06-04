@@ -1,6 +1,6 @@
 import {
 	IAppointment,
-	ActiveAppoitment,
+	ActiveAppointment,
 } from "../../shared/interfaces/appointment.interface";
 
 export enum ActionsTypes {
@@ -11,7 +11,7 @@ export enum ActionsTypes {
 export type IAppointmentAction =
 	| {
 			type: ActionsTypes.SET_ACTIVE_APPOINTMENTS;
-			payload: ActiveAppoitment[];
+			payload: ActiveAppointment[];
 	  }
 	| {
 			type: ActionsTypes.SET_ALL_APPOINTMENTS;

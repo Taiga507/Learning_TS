@@ -3,7 +3,7 @@ import hasRequiredFields from "../utils/hasRequiredFields";
 
 import {
 	IAppointment,
-	ActiveAppoitment,
+	ActiveAppointment,
 } from "../shared/interfaces/appointment.interface";
 
 const requiredFields = ["id", "date", "name", "service", "phone", "canceled"];
@@ -26,7 +26,7 @@ const useAppointmentService = () => {
 
 	const getAllActiveAppointments = async () => {
 		const base = await getAllAppointments();
-		const transformed: ActiveAppoitment[] = base.map((item) => {
+		const transformed: ActiveAppointment[] = base.map((item) => {
 			return {
 				id: item.id,
 				date: item.date,
