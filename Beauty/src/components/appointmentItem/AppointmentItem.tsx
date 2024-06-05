@@ -8,7 +8,10 @@ import { IAppointment } from "../../shared/interfaces/appointment.interface";
 // Более сложный вариант написания, по сравнению с библиотекой utility-types. В библиотеке вся эта сложная структура и прописана.
 // type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
 
-type AppointmentProps = Optional<IAppointment, "canceled">;
+type AppointmentProps = Optional<IAppointment, "canceled"> & {
+	openModal: (state: boolean) => void;
+	selectId: () => void;
+};
 
 function AppointmentItem({
 	id,
@@ -17,6 +20,8 @@ function AppointmentItem({
 	service,
 	phone,
 	canceled,
+	openModal,
+	selectId,
 }: AppointmentProps) {
 	const [timeLeft, changeTimeLeft] = useState<string | null>(null);
 
@@ -55,7 +60,15 @@ function AppointmentItem({
 						<span>Time left:</span>
 						<span className="appointment__timer">{timeLeft}</span>
 					</div>
-					<button className="appointment__cancel">Cancel</button>
+					<button
+						className="appointment__cancel"
+						onClick={() => {
+							openModal(true);
+							selectId();
+						}}
+					>
+						Cancel
+					</button>
 				</>
 			) : null}
 			{canceled ? <div className="appointment__canceled">Canceled</div> : null}
