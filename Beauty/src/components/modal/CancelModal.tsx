@@ -1,6 +1,6 @@
 import Portal from "../portal/Portal";
-import { useRef } from "react";
-import { CSSTransition } from 'react-transition-group'
+import { useRef, useEffect } from "react";
+import { CSSTransition } from "react-transition-group";
 import "./modal.scss";
 
 interface IModalProps {
@@ -11,6 +11,19 @@ interface IModalProps {
 
 function CancelModal({ handleClose, selectedId, isOpen }: IModalProps) {
 	const nodeRef = useRef<HTMLDivElement>(null!);
+	const closeOnEscapeKey = (e: KeyboardEvent): void => {
+		if (e.key === "Escape") {
+			handleClose(false);
+		}
+	};
+	useEffect(() => {
+		document.body.addEventListener("keydown", closeOnEscapeKey);
+
+		return () => {
+			document.body.removeEventListener("keydown", closeOnEscapeKey);
+		};
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [handleClose]);
 
 	return (
 		<Portal>
