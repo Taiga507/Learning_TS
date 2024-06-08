@@ -8,7 +8,8 @@ import { IAppointment } from "../../shared/interfaces/appointment.interface";
 // Более сложный вариант написания, по сравнению с библиотекой utility-types. В библиотеке вся эта сложная структура и прописана.
 // type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
 type AppointmentProps = Optional<IAppointment, "canceled"> & {
-	openModal: (state: number) => void;
+	openModal?: (state: number) => void;
+	getActiveAppointments?: () => void;
 };
 
 const AppointmentItem = memo(
@@ -20,6 +21,7 @@ const AppointmentItem = memo(
 		phone,
 		canceled,
 		openModal,
+		getActiveAppointments,
 	}: AppointmentProps) => {
 		const [timeLeft, changeTimeLeft] = useState<string | null>(null);
 
@@ -31,16 +33,24 @@ const AppointmentItem = memo(
 			);
 
 			const intervalId = setInterval(() => {
-				changeTimeLeft(
-					`${dayjs(date).diff(undefined, "h")}:${
-						dayjs(date).diff(undefined, "m") % 60
-					}`
-				);
+				if (dayjs(date).diff(undefined, "m") <= 0) {
+					if (getActiveAppointments) {
+						getActiveAppointments();
+					}
+					clearInterval(intervalId);
+				} else {
+					changeTimeLeft(
+						`${dayjs(date).diff(undefined, "h")}:${
+							dayjs(date).diff(undefined, "m") % 60
+						}`
+					);
+				}
 			}, 60000);
 
 			return () => {
 				clearInterval(intervalId);
 			};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		}, [date]);
 
 		const formattedDate = dayjs(date).format("DD/MM/YYYY HH:mm");
@@ -53,7 +63,7 @@ const AppointmentItem = memo(
 					<span className="appointment__service">Service: {service}</span>
 					<span className="appointment__phone">Phone: {phone}</span>
 				</div>
-				{!canceled ? (
+				{!canceled && openModal ? (
 					<>
 						<div className="appointment__time">
 							<span>Time left:</span>
@@ -62,7 +72,9 @@ const AppointmentItem = memo(
 						<button
 							className="appointment__cancel"
 							onClick={() => {
-								openModal(id);
+								if (openModal) {
+									openModal(id);
+								}
 							}}
 						>
 							Cancel
