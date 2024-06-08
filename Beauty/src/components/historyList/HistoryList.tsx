@@ -32,6 +32,9 @@ function HistoryList() {
 
 	return (
 		<>
+			{allAppointments.length === 0 ? (
+				<h2 className="no-data">No data to display</h2>
+			) : null}
 			{allAppointments.map((item) => {
 				return <AppointmentItem {...item} key={item.id} />;
 			})}

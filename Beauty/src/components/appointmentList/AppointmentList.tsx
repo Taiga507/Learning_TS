@@ -43,6 +43,10 @@ function AppointmentList() {
 
 	return (
 		<>
+			{activeAppointments.length === 0 ? (
+				<h2 className="no-data">No data to display</h2>
+			) : null}
+
 			{activeAppointments.map((item) => {
 				return (
 					<AppointmentItem

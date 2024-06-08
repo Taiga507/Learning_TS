@@ -1,5 +1,5 @@
 import { Calendar as LibCalendar } from "react-calendar";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 import { AppointmentContext } from "../../context/appointments/AppointmentsContext";
 
@@ -8,6 +8,11 @@ import "./calendar.scss";
 
 function Calendar() {
 	const { calendarDate, setDateAndFilter } = useContext(AppointmentContext);
+
+	useEffect(() => {
+		setDateAndFilter([null, null]);
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
 	return (
 		<div className="calendar">
@@ -18,6 +23,17 @@ function Calendar() {
 				}}
 				selectRange
 			/>
+			<button
+				disabled={
+					Array.isArray(calendarDate) && calendarDate[0] && calendarDate[1]
+						? false
+						: true
+				}
+				onClick={() => setDateAndFilter([null, null])}
+				className="calendar__reset"
+			>
+				Reset filters
+			</button>
 		</div>
 	);
 }
