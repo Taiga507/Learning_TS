@@ -2,7 +2,7 @@
   "appointments": [
     {
       "id": "1",
-      "date": "2024-07-01T12:10",
+      "date": "2024-06-16T12:10",
       "name": "Alex Smith",
       "service": "Manicure",
       "phone": "+1 948 945 344",
@@ -10,7 +10,7 @@
     },
     {
       "id": "2",
-      "date": "2024-06-01T15:15",
+      "date": "2024-06-15T15:15",
       "name": "Sam Smith",
       "service": "Pedicure",
       "phone": "+1 746 235 890",
@@ -18,7 +18,7 @@
     },
     {
       "id": "3",
-      "date": "2024-07-02T09:00",
+      "date": "2024-06-12T09:00",
       "name": "Alex Collson",
       "service": "Manicure",
       "phone": "+1 238 545 045",
@@ -26,7 +26,7 @@
     },
     {
       "id": "4",
-      "date": "2024-07-10T09:10",
+      "date": "2024-06-10T09:10",
       "name": "Kim Paul",
       "service": "Cleaning",
       "phone": "+1 928 345 356",
@@ -38,11 +38,11 @@
       "name": "Innes Olaf",
       "service": "Haircut",
       "phone": "+1 458 895 888",
-      "canceled": true
+      "canceled": false
     },
     {
       "id": "6",
-      "date": "2024-08-01T14:00",
+      "date": "2024-06-01T14:00",
       "name": "Yan Somer",
       "service": "Haircut",
       "phone": "+1 678 995 484",
@@ -50,7 +50,7 @@
     },
     {
       "id": "7",
-      "date": "2024-07-10T13:00",
+      "date": "2024-06-10T13:00",
       "name": "John Cena",
       "service": "Beard",
       "phone": "+1 333 835 438",
@@ -61,8 +61,8 @@
       "name": "Алексей Жерегеля",
       "service": "sdsd",
       "phone": "+7 903 518 595",
-      "date": "2024-07-08T12:11",
-      "canceled": true
+      "date": "2024-06-11T12:11",
+      "canceled": false
     }
   ]
 }
